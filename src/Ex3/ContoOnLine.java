@@ -8,14 +8,19 @@ public class ContoOnLine {
 		this.maxPrelievo = maxP;
 	}
 
-	public void stampaSaldo(){
+	void stampaSaldo(){
 		System.out.println("Titolare: "+titolare+" - Saldo: "+saldo+" - Num movimenti: "+nMovimenti+
 			" - Massimo movimenti: "+maxMovimenti+" - Massimo prelievo disponibile: "+maxPrelievo);
 	}
 
-	public void preleva(double x){
-		if(x<=maxPrelievo) super.preleva(x);
+	public void preleva(double x) {
+		if (x <= maxPrelievo) {
+			super.preleva(x);
 		}
+
+		if (x > maxPrelievo)
+			throw new BancaException("il prelievo non è disponibile");
 	}
+
 }
 

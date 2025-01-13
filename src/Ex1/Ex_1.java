@@ -11,7 +11,7 @@ public class Ex_1 {
 		Random random = new Random();
 
 		for (int i = 0; i < array.length; i++) {
-			array[i] = random.nextInt(10);
+			array[i] = random.nextInt(1,11);
 		}
 		cambiaNumero(array);
 		stampaArray(array);

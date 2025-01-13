@@ -12,17 +12,22 @@ public class ContoCorrente {
 		this.nMovimenti = 0;
 	}
 
-	public void preleva(double x) {
-		if (nMovimenti < maxMovimenti) saldo = saldo - x;
-		else saldo = saldo - x - 0.50;
-		nMovimenti++;
-		if (saldo < 0) {
-			throw new RuntimeException("il conto è in rosso");
-		} else nMovimenti++;
-	}
-}
+	void preleva(double x) throws BancaException {
+		if (nMovimenti < maxMovimenti) {
+			saldo = saldo - x;
 
-public double restituisciSaldo() {
-	return saldo;
+		} else {
+			saldo = saldo - x - 0.50;
+		}
+
+		if (saldo < 0) {
+			throw new BancaException("il conto è in rosso");
+			nMovimenti++;
+		}
+	}
+
+	double restituisciSaldo() {
+		return saldo;
+	}
 }
 
