@@ -8,9 +8,10 @@ public class ContoOnLine extends ContoCorrente {
 		this.maxPrelievo = maxP;
 	}
 
-/*	public void stampaSaldo() {
-		System.out.println("Titolare: " + titolare + " - Saldo: " + saldo + " - Num movimenti: " + nMovimenti +
-			" - Massimo movimenti: " + maxMovimenti + " - Massimo prelievo disponibile: " + maxPrelievo);
+	/*@Override
+	public String toString() {
+		return "Titolare: " + titolare + " - Saldo: " + saldo + " - Num movimenti: " + nMovimenti +
+			" - Massimo movimenti: " + maxMovimenti + " - Massimo prelievo disponibile: " + maxPrelievo;
 	}*/
 
 	@Override

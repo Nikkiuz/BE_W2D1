@@ -30,5 +30,11 @@ public class ContoCorrente {
 
 		nMovimenti++;
 	}
+
+	@Override
+	public String toString() {
+		return "Titolare: " + titolare + " - Saldo: " + saldo + " - Num movimenti: " + nMovimenti +
+			" - Massimo movimenti: " + maxMovimenti;
+	}
 }
 
