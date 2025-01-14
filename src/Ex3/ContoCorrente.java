@@ -5,29 +5,30 @@ public class ContoCorrente {
 	private int nMovimenti;
 	private final int maxMovimenti = 50;
 	private double saldo;
+	private final static double commissioneBanca = 0.50;
 
+	//costruttore
 	public ContoCorrente(String titolare, double saldo) {
 		this.titolare = titolare;
 		this.saldo = saldo;
 		this.nMovimenti = 0;
 	}
 
-	void preleva(double x) throws BancaException {
-		if (nMovimenti < maxMovimenti) {
-			saldo = saldo - x;
-
-		} else {
-			saldo = saldo - x - 0.50;
-		}
-
-		if (saldo < 0) {
-			throw new BancaException("il conto è in rosso");
-			nMovimenti++;
-		}
+	public double restituisciSaldo() {
+		return this.saldo;
 	}
 
-	double restituisciSaldo() {
-		return saldo;
+	public void preleva(double importo) throws BancaException {
+		if (nMovimenti < maxMovimenti) {
+			saldo = saldo - importo;
+
+		} else {
+			saldo = saldo - importo - commissioneBanca;
+		}
+		if (saldo < 0)
+			throw new BancaException("Il tuo conto è in rosso");
+
+		nMovimenti++;
 	}
 }
 
